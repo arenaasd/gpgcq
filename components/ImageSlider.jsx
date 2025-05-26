@@ -5,9 +5,10 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const images = [
-  "https://picsum.photos/id/1015/1200/400",
-  "https://picsum.photos/id/1016/1200/400",
-  "https://picsum.photos/id/1018/1200/400",
+  "/degree1.jpg",
+  "/degree2.jpg",
+  "/degree3.jpg",
+  "/degree4.jpg",
 ];
 
 const variants = {

@@ -46,7 +46,7 @@ export default function Footer() {
             <div className="text-center">
               <div className="inline-block">
                 <p className="text-sm text-gray-400 mb-2">
-                  © {new Date().getFullYear()} NAVTTC
+                  © {new Date().getFullYear()} GPGCQ SARIAB
                 </p>
                 <p className="text-xs text-gray-500">
                   All rights reserved.
