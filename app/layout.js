@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "NAVTTC",
-  description: "The navttc original website.",
+  title: "GPGCQ Sariab – Excellence in Education & Training",
+  description: "The gpgcq sariab original website.",
 };
 
 export default function RootLayout({ children }) {
