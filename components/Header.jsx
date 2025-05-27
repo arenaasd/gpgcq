@@ -14,7 +14,7 @@ export default function Header() {
   return (
     <header className="bg-gradient-to-l from-[#01411C] to-green-400 sticky top-0 z-50  text-white shadow-md">
       <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-        <div className="text-xl text-[#01411C] font-bold">GPGCQ  SARIAB</div>
+        <div className="text-xl text-[#01411C] font-bold tracking-wider" style={{ fontFamily: 'mooxy' }}>GPGCQ  SARIAB</div>
         <button
           className="md:hidden focus:outline-none cursor-pointer"
           onClick={toggleMenu}
