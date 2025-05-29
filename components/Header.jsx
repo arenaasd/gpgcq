@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
+import Image from 'next/image';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,8 +14,15 @@ export default function Header() {
 
   return (
     <header className="bg-gradient-to-l from-[#01411C] to-green-400 sticky top-0 z-50  text-white shadow-md">
-      <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-        <div className="text-xl text-[#01411C] font-bold tracking-wider" style={{ fontFamily: 'mooxy' }}>GPGCQ  SARIAB</div>
+      <div className="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between">
+      
+        <div className="text-xl text-[#01411C] font-bold tracking-wider flex items-center gap-4" style={{ fontFamily: 'mooxy' }}>
+            <Image
+        width={33}
+        height={30}
+        src={'/logo1.png'}
+         />
+          <span className='mt-1'>GPGCQ SARIAB</span></div>
         <button
           className="md:hidden focus:outline-none cursor-pointer"
           onClick={toggleMenu}
