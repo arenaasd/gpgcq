@@ -28,13 +28,13 @@ export default function Home() {
             preserveAspectRatio="none"
           >
             <path
-              fill="#01411C"
+              style={{ fill: "'var(--primary-hover)'/90" }}
               d="M0,0 C360,80 1080,0 1440,80 L1440,0 L0,0 Z"
             />
           </svg>
         </div>
 
-        <div className="relative z-0 pt-16 pb-24 bg-gradient-to-b from-green-400 to-[#01411C] flex flex-col items-center justify-center">
+        <div className="relative z-0 pt-16 pb-24 bg-[var(--primary-background)] flex flex-col items-center justify-center">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -45,7 +45,7 @@ export default function Home() {
             <span className="relative inline-block px-6 py-2">
               <span className="absolute left-0 top-1/2 w-10 h-0.5 bg-white -translate-y-1/2 -translate-x-full"></span>
               <span className="absolute right-0 top-1/2 w-10 h-0.5 bg-white translate-y-1/2 translate-x-full"></span>
-              <span className="text-white mb-8 drop-shadow-sm">PARTNERS</span>
+              <span className=" mb-8 drop-shadow-sm text-white">PARTNERS</span>
             </span>
           </motion.h2>
           <LogoCarousel

@@ -46,7 +46,7 @@ export default function Footer() {
             <div className="text-center">
               <div className="inline-block">
                 <p className="text-sm text-gray-400 mb-2">
-                  © {new Date().getFullYear()} GPGCQ SARIAB
+                  © {new Date().getFullYear()} GOVERNMENT POST GRADUATE COLLEGE QUETTA
                 </p>
                 <p className="text-xs text-gray-500">
                   All rights reserved.
@@ -107,7 +107,7 @@ export default function Footer() {
         </div>
       </footer>
       
-      <div className="bg-[#01431D] text-gray-300 h-[24px] flex justify-center items-center space-x-2">
+      <div className="bg-[#000000] text-gray-300 h-[24px] flex justify-center items-center space-x-2">
         <p className="text-xs font-semibold">Developed by Arzuno Team</p>
         <a
           href="mailto:arzunoteam@gmail.com"

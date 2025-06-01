@@ -168,13 +168,13 @@ export default function ServicesPage() {
             preserveAspectRatio="none"
           >
             <path
-              fill="#01411C"
+              style={{ fill: "'var(--primary-hover)'/90" }}
               d="M0,0 C360,80 1080,0 1440,80 L1440,0 L0,0 Z"
             />
           </svg>
         </div>
 
-        <div className="relative z-0 pt-16 pb-24 bg-gradient-to-b from-green-400 to-[#01411C] flex flex-col items-center justify-center">
+        <div className="relative z-0 pt-16 pb-24 bg-[var(--primary-background)] flex flex-col items-center justify-center">
           {/* Floating particles background */}
           <div className="absolute inset-0 overflow-hidden">
             {[...Array(25)].map((_, i) => (
@@ -253,7 +253,7 @@ export default function ServicesPage() {
         className="max-w-7xl mx-auto px-6 py-20"
       >
         <motion.div variants={itemVariants} className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-800 mb-4">
+          <h2 className="text-4xl font-bold text-[var(--primary-background)] mb-4">
             Training Programs & Services
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -334,7 +334,7 @@ export default function ServicesPage() {
       >
         <div className="max-w-7xl mx-auto px-6">
           <motion.div variants={itemVariants} className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-800 mb-4">
+            <h2 className="text-4xl font-bold text-[var(--primary-background)] mb-4">
               Why Choose GPGCQ SARIAB?
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -350,7 +350,7 @@ export default function ServicesPage() {
                 whileHover={{ y: -5, scale: 1.03 }}
                 className="text-center p-6 rounded-xl hover:bg-gray-50 transition-colors duration-300"
               >
-                <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-[#01411C] rounded-xl flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-[var(--primary-background)] rounded-xl flex items-center justify-center mx-auto mb-4">
                   <feature.icon size={28} className="text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-800 mb-3">{feature.title}</h3>
@@ -367,7 +367,7 @@ export default function ServicesPage() {
         whileInView="visible"
         viewport={{ once: true }}
         variants={containerVariants}
-        className="bg-gradient-to-br from-green-500 to-[#01411C] py-20"
+        className="bg-[var(--primary-background)] py-20"
       >
         <div className="max-w-4xl mx-auto text-center px-6">
           <motion.h2
@@ -389,7 +389,7 @@ export default function ServicesPage() {
             <motion.button
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-white text-green-700 font-bold py-4 px-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center space-x-2"
+              className="bg-[var(--primary-hover)] text-[var(--primary-background)] font-bold py-4 px-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center space-x-2"
             >
               <span>Enroll Now</span>
               <ArrowRight size={20} />
@@ -397,7 +397,7 @@ export default function ServicesPage() {
             <motion.button
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
-              className="border-2 border-white text-white font-bold py-4 px-8 rounded-lg hover:bg-white hover:text-green-700 transition-all duration-300"
+              className="border-2 border-white text-white font-bold py-4 px-8 rounded-lg hover:bg-white hover:text-[var(--primary-hover)] transition-all duration-300"
             >
               Schedule Consultation
             </motion.button>

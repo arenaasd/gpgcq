@@ -37,12 +37,12 @@ function PersonCard({ direction, image, titlePrefix, titleName, description, rea
       </div>
       <div className="w-full md:w-1/2 p-4 flex flex-col">
         <h3 className="text-xs md:text-sm text-gray-700 mb-1">{titlePrefix}</h3>
-        <h2 className="text-base md:text-lg font-semibold text-[#01411c] mb-2">{titleName}</h2>
+        <h2 className="text-base md:text-lg font-semibold text-[var(--primary-background)] mb-2">{titleName}</h2>
         <p className="text-gray-600 text-xs md:text-sm mb-3">{description}</p>
         {readMoreLink && (
           <a
             href={readMoreLink}
-            className="px-4 py-2 cursor-pointer text-green-700 border border-green-700 rounded-md text-xs md:text-sm transition duration-200 hover:bg-[#01411c] hover:text-white mt-auto text-center"
+            className="px-4 py-2 cursor-pointer text-[var(--primary-background)] border border-[var(--primary-hover)] rounded-md text-xs md:text-sm transition duration-200 hover:bg-[var(--primary-background)] hover:text-[var(--primary-hover)] mt-auto text-center"
           >
             Read More
           </a>

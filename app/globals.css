@@ -11,6 +11,7 @@
 }
 
 
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -56,6 +57,7 @@
     from {
       height: 0;
     }
+
     to {
       height: var(--radix-accordion-content-height);
     }
@@ -65,29 +67,37 @@
     from {
       height: var(--radix-accordion-content-height);
     }
+
     to {
       height: 0;
     }
   }
+
   @keyframes accordion-down {
-  from {
-    height: 0;
+    from {
+      height: 0;
     }
-  to {
-    height: var(--radix-accordion-content-height);
+
+    to {
+      height: var(--radix-accordion-content-height);
     }
   }
+
   @keyframes accordion-up {
-  from {
-    height: var(--radix-accordion-content-height);
+    from {
+      height: var(--radix-accordion-content-height);
     }
-  to {
-    height: 0;
+
+    to {
+      height: 0;
     }
   }
 }
 
 :root {
+  --primary-background: #922121;
+  --primary-hover: #e0db46;
+  --secondry-color: #1DBAF5;
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -160,6 +170,7 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
