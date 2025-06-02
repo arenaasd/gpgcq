@@ -96,8 +96,8 @@
 
 :root {
   --primary-background: #922121;
-  --primary-hover: #e0db46;
-  --secondry-color: #1DBAF5;
+  --primary-hover: #ffffff;
+  --secondry-color: #FED668;
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);

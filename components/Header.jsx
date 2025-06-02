@@ -19,27 +19,7 @@ export default function Header() {
     <>
       {/* Modern Header with Split Layout */}
       <header className="bg-gradient-to-r from-white via-gray-50 to-white shadow-xl border-b-2" style={{ borderBottomColor: 'var(--primary-background)' }}>
-        {/* Top Contact Strip */}
-        <div className="py-2" style={{ backgroundColor: 'var(--primary-background)' }}>
-          <div className="max-w-7xl mx-auto px-4">
-            <div className="flex justify-between items-center text-white text-sm">
-              <div className="flex items-center space-x-6">
-                <div className="flex items-center gap-2 hover:scale-105 transition-transform cursor-pointer group">
-                  <Phone size={16} className="group-hover:rotate-12 transition-transform" />
-                  <span className="font-medium">UAN-111-000-010</span>
-                </div>
-                <div className="flex items-center gap-2 hover:scale-105 transition-transform cursor-pointer group">
-                  <Mail size={16} className="group-hover:bounce transition-transform" />
-                  <span className="font-medium">info@gcu.edu.pk</span>
-                </div>
-              </div>
-              <div className="hidden md:flex items-center gap-2 text-xs opacity-90">
-                <MapPin size={14} />
-                <span>Quetta, Balochistan</span>
-              </div>
-            </div>
-          </div>
-        </div>
+      
 
         {/* Main Header Section */}
         <div className="py-6 bg-white relative overflow-hidden">
@@ -65,10 +45,10 @@ export default function Header() {
                   <h1 className="text-2xl md:text-3xl font-black tracking-tight transition-all duration-300 group-hover:tracking-wide" style={{ color: 'var(--primary-background)' }}>
                     <span className="relative">
                       GPGCQ
-                      <div className="absolute -bottom-1 left-0 w-0 h-1 transition-all duration-500 group-hover:w-full" style={{ backgroundColor: 'var(--primary-hover)' }}></div>
+                      <div className="absolute -bottom-1 left-0 w-0 h-1 transition-all duration-500 group-hover:w-full" style={{ backgroundColor: 'var(--primary-background)' }}></div>
                     </span>
                   </h1>
-                  <p className="text-sm font-semibold text-[var(--primary-hover)] tracking-wider mt-1 group-hover:text[var(--primary-background)] transition-colors">
+                  <p className="text-sm font-semibold text-[var(--primary-background)] tracking-wider mt-1 group-hover:text[var(--primary-background)] transition-colors">
                     GOVERNMENT POST GRADUATE COLLEGE
                   </p>
                   <p className="text-xs font-medium tracking-widest opacity-75 uppercase" style={{ color: 'var(--primary-background)' }}>
@@ -127,14 +107,13 @@ export default function Header() {
                   { href: '/research', label: 'Research' },
                   { href: '/facilities', label: 'Facilities' },
                   { href: '/services', label: 'Services' },
-                  { href: '/contact', label: 'Contact' },
                 ].map((link) => (
                   <Link
                     key={link.href}
                     href={link.href}
                     className="px-4 py-2 text-sm font-semibold text-white rounded-xl relative overflow-hidden group transition-all duration-300 hover:scale-105"
                     onMouseEnter={(e) => {
-                      e.currentTarget.style.backgroundColor = 'var(--primary-hover)';
+                      e.currentTarget.style.backgroundColor = 'var(--secondry-color)';
                       e.currentTarget.style.color = 'var(--primary-background)';
                       e.currentTarget.style.transform = 'scale(1.05) translateY(-2px)';
                       e.currentTarget.style.boxShadow = '0 8px 25px rgba(0,0,0,0.2)';
@@ -176,7 +155,6 @@ export default function Header() {
                 { href: '/research', label: 'Research' },
                 { href: '/facilities', label: 'Facilities' },
                 { href: '/services', label: 'Services' },
-                { href: '/contact', label: 'Contact' },
               ].map((link, index) => (
                 <Link
                   key={link.href}

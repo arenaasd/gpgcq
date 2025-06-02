@@ -25,24 +25,24 @@ function PersonCard({ direction, image, titlePrefix, titleName, description, rea
       initial="hidden"
       animate={inView ? 'visible' : 'hidden'}
       transition={{ duration: 0.5, ease: 'easeInOut' }}
-      className="bg-white shadow-md rounded-md overflow-hidden w-full max-w-lg flex flex-col md:flex-row items-center mx-auto"
+      className="bg-white shadow-md rounded-md overflow-hidden w-full max-w-lg md:flex-row items-center mx-auto"
     >
-      <div className="w-full md:w-1/2">
+      <div className="w-full md:w-full">
         <img
           src={image}
           alt={titleName}
-          className="w-full h-auto object-cover"
-          style={{ maxHeight: '300px', objectFit: 'cover' }}
+          className="w-full h-auto object-cover hover:scale-110 transition-all duration-500"
+          style={{ maxHeight: '400px', objectFit: 'cover' }}
         />
       </div>
-      <div className="w-full md:w-1/2 p-4 flex flex-col">
+      <div className="w-full md:w-full p-4 flex flex-col">
         <h3 className="text-xs md:text-sm text-gray-700 mb-1">{titlePrefix}</h3>
         <h2 className="text-base md:text-lg font-semibold text-[var(--primary-background)] mb-2">{titleName}</h2>
         <p className="text-gray-600 text-xs md:text-sm mb-3">{description}</p>
         {readMoreLink && (
           <a
             href={readMoreLink}
-            className="px-4 py-2 cursor-pointer text-[var(--primary-background)] border border-[var(--primary-hover)] rounded-md text-xs md:text-sm transition duration-200 hover:bg-[var(--primary-background)] hover:text-[var(--primary-hover)] mt-auto text-center"
+            className="px-4 py-2 cursor-pointer bg-[var(--primary-background)] text-white border border-[var(--secondry-color)] rounded-md text-xs md:text-sm transition duration-200 hover:bg-[var(--secondry-color)] hover:text-[var(--primary-background)] hover:border-[var(--primary-background)] mt-auto text-center"
           >
             Read More
           </a>
@@ -57,10 +57,10 @@ export default function Cards() {
     <div className="flex flex-col md:flex-row gap-6 py-22 items-center justify-center p-6 w-full max-w-7xl mx-auto">
       <PersonCard
         direction="left"
-        image="https://randomuser.me/api/portraits/men/10.jpg"
-        titlePrefix="Leader One"
-        titleName="Alex Johnson"
-        description="Dedicated to innovation and growth."
+        image="/principle.jpeg"
+        titlePrefix="Principle"
+        titleName="Prof: Abdul Razik Sabir Pirkani"
+        description="Dedicated to innovation and growth of the GPGCQ sariab."
         readMoreLink="/alex-johnson"
       />
       <PersonCard

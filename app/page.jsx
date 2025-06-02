@@ -1,6 +1,7 @@
 'use client'
 import Cards from "@/components/Cards";
 import ImageSlider from "@/components/ImageSlider";
+import UniversityNewsBoard from "@/components/NewsBoard";
 import { LogoCarousel } from "@/components/ui/logo-carousel";
 import { motion } from 'framer-motion';
 
@@ -19,6 +20,7 @@ export default function Home() {
     <>
       <ImageSlider />
       <Cards />
+      <UniversityNewsBoard />
       <div className="relative mt-18 min-h-[150px]">
         <div className="absolute top-0 left-0 w-full overflow-hidden leading-[0] z-10">
           <svg
@@ -28,7 +30,7 @@ export default function Home() {
             preserveAspectRatio="none"
           >
             <path
-              style={{ fill: "'var(--primary-hover)'/90" }}
+              style={{ fill: "#831212" }}
               d="M0,0 C360,80 1080,0 1440,80 L1440,0 L0,0 Z"
             />
           </svg>
