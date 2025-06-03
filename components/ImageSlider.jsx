@@ -5,10 +5,9 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const images = [
-  "/degree1.jpg",
-  "/degree2.jpg",
+  "/degree1.png",
+  "/principle.jpeg",
   "/degree3.jpg",
-  "/degree4.jpg",
 ];
 
 const variants = {
@@ -85,6 +84,7 @@ export default function ImageSlider() {
               x: direction > 0 ? "-100%" : "100%",
             }),
           }}
+          
           initial="enter"
           animate="center"
           exit="exit"

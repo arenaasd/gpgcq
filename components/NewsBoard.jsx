@@ -122,7 +122,7 @@ const UniversityNewsBoard = () => {
                 {/* Image */}
                 <div className="relative h-full min-h-[200px]">
                   <img
-                    src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2384&q=80"
+                    src="/principle2.jpg"
                     alt="University collaboration signing ceremony"
                     className="w-full h-full object-cover rounded-xl shadow-lg ring-1 ring-gray-200"
                   />

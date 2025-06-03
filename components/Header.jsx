@@ -44,12 +44,12 @@ export default function Header() {
                 <div className="flex flex-col">
                   <h1 className="text-2xl md:text-3xl font-black tracking-tight transition-all duration-300 group-hover:tracking-wide" style={{ color: 'var(--primary-background)' }}>
                     <span className="relative">
-                      GPGCQ
+                      G.P.G.C.Q
                       <div className="absolute -bottom-1 left-0 w-0 h-1 transition-all duration-500 group-hover:w-full" style={{ backgroundColor: 'var(--primary-background)' }}></div>
                     </span>
                   </h1>
                   <p className="text-sm font-semibold text-[var(--primary-background)] tracking-wider mt-1 group-hover:text[var(--primary-background)] transition-colors">
-                    GOVERNMENT POST GRADUATE COLLEGE
+                    GOVERNMENT BOYS POST GRADUATE COLLEGE SARIAB ROAD QUETTA
                   </p>
                   <p className="text-xs font-medium tracking-widest opacity-75 uppercase" style={{ color: 'var(--primary-background)' }}>
                     Excellence in Education

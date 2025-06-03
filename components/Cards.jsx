@@ -32,11 +32,14 @@ function PersonCard({ direction, image, titlePrefix, titleName, description, rea
           src={image}
           alt={titleName}
           className="w-full h-auto object-cover hover:scale-110 transition-all duration-500"
-          style={{ maxHeight: '400px', objectFit: 'cover' }}
+          style={{
+            maxHeight: '400px',
+            objectFit: 'fill',
+          }}
         />
       </div>
       <div className="w-full md:w-full p-4 flex flex-col">
-        <h3 className="text-xs md:text-sm text-gray-700 mb-1">{titlePrefix}</h3>
+        <h3 className="text-sm md:text-lg text-gray-700 mb-1">{titlePrefix}</h3>
         <h2 className="text-base md:text-lg font-semibold text-[var(--primary-background)] mb-2">{titleName}</h2>
         <p className="text-gray-600 text-xs md:text-sm mb-3">{description}</p>
         {readMoreLink && (
@@ -57,7 +60,7 @@ export default function Cards() {
     <div className="flex flex-col md:flex-row gap-6 py-22 items-center justify-center p-6 w-full max-w-7xl mx-auto">
       <PersonCard
         direction="left"
-        image="/principle.jpeg"
+        image="/principle1.jpg"
         titlePrefix="Principle"
         titleName="Prof: Abdul Razik Sabir Pirkani"
         description="Dedicated to innovation and growth of the GPGCQ sariab."
