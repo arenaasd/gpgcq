@@ -1,61 +1,52 @@
-'use client'
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { 
-  Code, 
-  Wrench, 
-  Zap, 
-  Users, 
-  BookOpen, 
-  Award, 
-  Clock, 
+'use client';
+import React, { useState, useEffect, useRef } from 'react';
+import {
+  Code,
+  Wrench,
+  Users,
+  BookOpen,
+  Zap,
+  Target,
   CheckCircle,
   ArrowRight,
   Star,
-  Target,
+  Shield,
   TrendingUp,
-  Shield
+  Building2,
+  Clock
 } from 'lucide-react';
+import Link from 'next/link';
 
 export default function ServicesPage() {
   const [activeService, setActiveService] = useState(null);
+  const sectionsRef = useRef([]);
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2
-      }
-    }
-  };
+  useEffect(() => {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 20
-      }
-    }
-  };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0px)';
+        }
+      });
+    }, observerOptions);
 
-  const cardVariants = {
-    hidden: { opacity: 0, scale: 0.9 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 20
+    sectionsRef.current.forEach((section, index) => {
+      if (section) {
+        section.style.opacity = '0';
+        section.style.transform = 'translateY(50px)';
+        section.style.transition = `all 0.6s ease-out ${index * 0.1}s`;
+        observer.observe(section);
       }
-    }
-  };
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   const services = [
     {
@@ -67,7 +58,6 @@ export default function ServicesPage() {
       features: ["Web Development", "Mobile Apps", "Database Management", "Cloud Computing"],
       duration: "3-6 months",
       level: "Beginner to Advanced",
-      color: "from-blue-500 to-blue-700"
     },
     {
       id: 2,
@@ -78,7 +68,6 @@ export default function ServicesPage() {
       features: ["Electrical Work", "Plumbing", "Carpentry", "Automotive Repair"],
       duration: "2-4 months",
       level: "Entry to Professional",
-      color: "from-orange-500 to-orange-700"
     },
     {
       id: 3,
@@ -89,7 +78,6 @@ export default function ServicesPage() {
       features: ["Project Management", "Digital Marketing", "Finance", "Leadership"],
       duration: "1-3 months",
       level: "Intermediate to Advanced",
-      color: "from-purple-500 to-purple-700"
     },
     {
       id: 4,
@@ -100,7 +88,6 @@ export default function ServicesPage() {
       features: ["Microsoft Office", "Internet Safety", "Email & Communication", "Basic Programming"],
       duration: "1-2 months",
       level: "Beginner to Intermediate",
-      color: "from-green-500 to-green-700"
     },
     {
       id: 5,
@@ -111,7 +98,6 @@ export default function ServicesPage() {
       features: ["IT Certifications", "Trade Licenses", "Professional Credentials", "Continuing Education"],
       duration: "Variable",
       level: "Professional",
-      color: "from-red-500 to-red-700"
     },
     {
       id: 6,
@@ -122,15 +108,14 @@ export default function ServicesPage() {
       features: ["Resume Building", "Interview Coaching", "Job Matching", "Career Counseling"],
       duration: "Ongoing",
       level: "All Levels",
-      color: "from-teal-500 to-teal-700"
     }
   ];
 
   const stats = [
-    { icon: Users, number: "15,000+", label: "Students Trained", color: "text-blue-600" },
-    { icon: Award, number: "85%", label: "Job Placement Rate", color: "text-green-600" },
-    { icon: BookOpen, number: "50+", label: "Training Programs", color: "text-purple-600" },
-    { icon: Clock, number: "10+", label: "Years of Excellence", color: "text-orange-600" }
+    { icon: Users, number: "15,000+", label: "Students Trained" },
+    { icon: Star, number: "85%", label: "Job Placement Rate" },
+    { icon: BookOpen, number: "50+", label: "Training Programs" },
+    { icon: Clock, number: "10+", label: "Years of Excellence" }
   ];
 
   const features = [
@@ -157,253 +142,184 @@ export default function ServicesPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Hero Section with SVG Wave */}
-      <div className="relative min-h-[400px]">
-        <div className="absolute top-0 left-0 w-full overflow-hidden leading-[0] z-10">
-          <svg
-            className="relative block w-full h-[80px]"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 1440 80"
-            preserveAspectRatio="none"
-          >
-            <path
-              style={{ fill: "'var(--primary-hover)'/90" }}
-              d="M0,0 C360,80 1080,0 1440,80 L1440,0 L0,0 Z"
-            />
-          </svg>
+    <div className="max-w-7xl mx-auto p-4 mb-24 mt-6 bg-gray-50 min-h-screen">
+      {/* Hero Section */}
+      <div
+        ref={el => sectionsRef.current[0] = el}
+        className="bg-white rounded-xl shadow-xl overflow-hidden mb-8 border border-gray-100"
+      >
+        <div className="bg-[var(--primary-background)] text-white px-8 py-6 shadow-lg">
+          <h1 className="text-3xl font-bold flex items-center gap-3">
+            <Building2 className="w-8 h-8" />
+            Our Services
+          </h1>
+          <p className="text-white/90 mt-2">Government Post Graduate College Saryab Road, Quetta</p>
         </div>
 
-        <div className="relative z-0 pt-16 pb-24 bg-[var(--primary-background)] flex flex-col items-center justify-center">
-          {/* Floating particles background */}
-          <div className="absolute inset-0 overflow-hidden">
-            {[...Array(25)].map((_, i) => (
-              <motion.div
-                key={i}
-                className="absolute w-2 h-2 bg-white/20 rounded-full"
-                style={{
-                  left: `${Math.random() * 100}%`,
-                  top: `${Math.random() * 100}%`
-                }}
-                animate={{
-                  y: [-20, 20, -20],
-                  opacity: [0.3, 0.7, 0.3],
-                  scale: [1, 1.2, 1]
-                }}
-                transition={{
-                  duration: 4 + Math.random() * 2,
-                  repeat: Infinity,
-                  delay: Math.random() * 2
-                }}
-              />
-            ))}
-          </div>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ type: "spring", stiffness: 100, damping: 20, duration: 0.8 }}
-            className="text-5xl md:text-6xl font-bold text-white shadow-md relative mt-[60px] mb-6 text-center"
-          >
-            <span className="relative inline-block px-8 py-4">
-              <span className="absolute left-0 top-1/2 w-16 h-0.5 bg-white -translate-y-1/2 -translate-x-full hidden md:block"></span>
-              <span className="absolute right-0 top-1/2 w-16 h-0.5 bg-white translate-y-1/2 translate-x-full hidden md:block"></span>
-              <span className="text-white drop-shadow-lg">OUR SERVICES</span>
-            </span>
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, type: "spring", stiffness: 100, damping: 20 }}
-            className="text-xl text-white/90 text-center max-w-3xl px-6 leading-relaxed"
-          >
-            Empowering individuals with cutting-edge skills and knowledge for a successful career in today's competitive market.
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.5, type: "spring", stiffness: 100, damping: 20 }}
-            className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4 px-6"
-          >
-            {stats.map((stat, index) => (
-              <motion.div
-                key={index}
-                whileHover={{ scale: 1.05, y: -5 }}
-                className="text-center bg-white/10 backdrop-blur-sm rounded-xl p-4"
-              >
-                <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center mx-auto mb-2">
-                  <stat.icon size={20} className="text-white" />
+        <div className="p-8">
+          <div className="text-center">
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">
+              Training Programs & Services
+            </h2>
+            <p className="text-gray-600 leading-relaxed text-lg max-w-4xl mx-auto">
+              Empowering individuals with cutting-edge skills and knowledge for a successful career in today's competitive market.
+            </p>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-6">
+              {stats.map((stat, index) => (
+                <div
+                  key={index}
+                  className="p-6 bg-gradient-to-br from-gray-50 to-gray-100 rounded-lg border border-gray-200 hover:shadow-lg hover:border-[var(--primary-background)] transition-all duration-300 transform hover:-translate-y-1 cursor-pointer group"
+                >
+                  <div className="w-12 h-12 bg-[var(--primary-background)] rounded-lg flex items-center justify-center mx-auto mb-3 group-hover:bg-[var(--secondry-color)] group-hover:text-[var(--primary-background)] transition-colors duration-300">
+                    <stat.icon size={20} className="text-white group-hover:text-[var(--primary-background)]" />
+                  </div>
+                  <div className="text-xl font-bold text-gray-800 mb-1 group-hover:text-[var(--primary-background)]">{stat.number}</div>
+                  <div className="text-sm text-gray-600 group-hover:text-gray-700">{stat.label}</div>
                 </div>
-                <div className="text-2xl font-bold text-white">{stat.number}</div>
-                <div className="text-sm text-white/80">{stat.label}</div>
-              </motion.div>
-            ))}
-          </motion.div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
 
       {/* Services Grid */}
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={containerVariants}
-        className="max-w-7xl mx-auto px-6 py-20"
+      <div
+        ref={el => sectionsRef.current[1] = el}
+        className="bg-white rounded-xl shadow-xl overflow-hidden mb-8 border border-gray-100"
       >
-        <motion.div variants={itemVariants} className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-[var(--primary-background)] mb-4">
-            Training Programs & Services
+        <div className="bg-[var(--primary-background)] text-white px-8 py-4 shadow-lg">
+          <h2 className="text-xl font-bold flex items-center gap-2">
+            <Star className="w-6 h-6" />
+            Our Training Programs
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+        </div>
+        <div className="p-8">
+          <p className="text-gray-600 leading-relaxed text-lg mb-6 text-center">
             Choose from our comprehensive range of training programs designed to meet industry demands and career aspirations.
           </p>
-        </motion.div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
-            <motion.div
-              key={service.id}
-              variants={cardVariants}
-              whileHover={{ y: -10, scale: 1.02 }}
-              onHoverStart={() => setActiveService(service.id)}
-              onHoverEnd={() => setActiveService(null)}
-              className="bg-white rounded-2xl shadow-xl overflow-hidden group cursor-pointer"
-            >
-              <div className={`h-2 bg-gradient-to-r ${service.color}`}></div>
-              
-              <div className="p-8">
-                <div className="flex items-center mb-4">
-                  <div className={`w-14 h-14 bg-gradient-to-br ${service.color} rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300`}>
-                    <service.icon size={24} className="text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-gray-800">{service.title}</h3>
-                    <p className="text-sm text-gray-500">{service.subtitle}</p>
-                  </div>
-                </div>
-
-                <p className="text-gray-600 mb-6 leading-relaxed">
-                  {service.description}
-                </p>
-
-                <div className="space-y-4 mb-6">
-                  <div className="flex justify-between text-sm">
-                    <span className="text-gray-500">Duration:</span>
-                    <span className="font-semibold text-gray-700">{service.duration}</span>
-                  </div>
-                  <div className="flex justify-between text-sm">
-                    <span className="text-gray-500">Level:</span>
-                    <span className="font-semibold text-gray-700">{service.level}</span>
-                  </div>
-                </div>
-
-                <div className="mb-6">
-                  <h4 className="font-semibold text-gray-800 mb-3">Key Features:</h4>
-                  <div className="grid grid-cols-2 gap-2">
-                    {service.features.map((feature, idx) => (
-                      <div key={idx} className="flex items-center text-sm text-gray-600">
-                        <CheckCircle size={14} className="text-green-500 mr-2 flex-shrink-0" />
-                        <span>{feature}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <motion.button
-                  whileHover={{ x: 5 }}
-                  className={`w-full bg-gradient-to-r ${service.color} text-white font-semibold py-3 px-6 rounded-lg flex items-center justify-center space-x-2 group-hover:shadow-lg transition-all duration-300`}
-                >
-                  <span>Learn More</span>
-                  <ArrowRight size={18} />
-                </motion.button>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </motion.div>
-
-      {/* Features Section */}
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        variants={containerVariants}
-        className="bg-white py-20"
-      >
-        <div className="max-w-7xl mx-auto px-6">
-          <motion.div variants={itemVariants} className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-[var(--primary-background)] mb-4">
-              Why Choose GPGCQ SARIAB?
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We're committed to providing world-class training that prepares you for real-world success.
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {features.map((feature, index) => (
-              <motion.div
-                key={index}
-                variants={cardVariants}
-                whileHover={{ y: -5, scale: 1.03 }}
-                className="text-center p-6 rounded-xl hover:bg-gray-50 transition-colors duration-300"
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.map((service, index) => (
+              <div
+                key={service.id}
+                onMouseEnter={() => setActiveService(service.id)}
+                onMouseLeave={() => setActiveService(null)}
+                className="bg-white rounded-xl shadow-xl overflow-hidden border border-gray-100 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 cursor-pointer group"
               >
-                <div className="w-16 h-16 bg-[var(--primary-background)] rounded-xl flex items-center justify-center mx-auto mb-4">
-                  <feature.icon size={28} className="text-white" />
+                <div className="h-2 bg-[var(--primary-background)]"></div>
+                <div className="p-6">
+                  <div className="flex items-center mb-4">
+                    <div className="w-12 h-12 bg-[var(--primary-background)] rounded-lg flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
+                      <service.icon size={24} className="text-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-bold text-gray-800 group-hover:text-[var(--primary-background)]">{service.title}</h3>
+                      <p className="text-sm text-gray-500">{service.subtitle}</p>
+                    </div>
+                  </div>
+                  <p className="text-gray-600 text-sm mb-6 leading-relaxed">
+                    {service.description}
+                  </p>
+                  <div className="space-y-4 mb-6">
+                    <div className="flex justify-between text-sm">
+                      <span className="text-gray-500">Duration:</span>
+                      <span className="font-semibold text-gray-700">{service.duration}</span>
+                    </div>
+                    <div className="flex justify-between text-sm">
+                      <span className="text-gray-500">Level:</span>
+                      <span className="font-semibold text-gray-700">{service.level}</span>
+                    </div>
+                  </div>
+                  <div className="mb-6">
+                    <h4 className="font-semibold text-gray-800 mb-3">Key Features:</h4>
+                    <div className="grid grid-cols-1 gap-2">
+                      {service.features.map((feature, idx) => (
+                        <div
+                          key={idx}
+                          className="flex items-start gap-3 p-3 bg-gradient-to-r from-gray-50 to-gray-100 rounded-lg border-l-4 border-[var(--primary-background)] hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 cursor-pointer"
+                        >
+                          <CheckCircle className="w-5 h-5 text-[var(--primary-background)] mt-0.5 flex-shrink-0" />
+                          <span className="text-gray-700 text-sm font-medium">{feature}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  <button
+                    className="w-full bg-[var(--primary-background)] border-[var(--secondry-color)] border-[1px] hover:border-[var(--primary-background)] hover:bg-[var(--secondry-color)] text-white hover:text-[var(--primary-background)] px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg cursor-pointer font-semibold flex items-center justify-center space-x-2"
+                  >
+                    <span>Learn More</span>
+                    <ArrowRight size={18} />
+                  </button>
                 </div>
-                <h3 className="text-xl font-bold text-gray-800 mb-3">{feature.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{feature.description}</p>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
-      </motion.div>
+      </div>
+
+      {/* Features Section */}
+      <div
+        ref={el => sectionsRef.current[2] = el}
+        className="bg-white rounded-xl shadow-xl overflow-hidden mb-8 border border-gray-100"
+      >
+        <div className="bg-[var(--primary-background)] text-white px-8 py-4 shadow-lg">
+          <h2 className="text-xl font-bold flex items-center gap-2">
+            <Star className="w-6 h-6" />
+            Why Choose GPGCQ Saryab?
+          </h2>
+        </div>
+        <div className="p-8">
+          <p className="text-gray-600 leading-relaxed text-lg mb-6 text-center">
+            We're committed to providing world-class training that prepares you for real-world success.
+          </p>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {features.map((feature, index) => (
+              <div
+                key={index}
+                className="p-6 bg-gradient-to-br from-gray-50 to-gray-100 rounded-lg border border-gray-200 hover:shadow-lg hover:border-[var(--primary-background)] transition-all duration-300 transform hover:-translate-y-1 cursor-pointer group"
+              >
+                <div className="w-12 h-12 bg-[var(--primary-background)] rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:bg-[var(--secondry-color)] group-hover:text-[var(--primary-background)] transition-colors duration-300">
+                  <feature.icon size={28} className="text-white group-hover:text-[var(--primary-background)]" />
+                </div>
+                <h3 className="text-lg font-bold text-gray-800 mb-2 group-hover:text-[var(--primary-background)] transition-colors">{feature.title}</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">{feature.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
 
       {/* CTA Section */}
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        variants={containerVariants}
-        className="bg-[var(--primary-background)] py-20"
+      <div
+        ref={el => sectionsRef.current[3] = el}
+        className="bg-white rounded-xl shadow-xl overflow-hidden border border-gray-100"
       >
-        <div className="max-w-4xl mx-auto text-center px-6">
-          <motion.h2
-            variants={itemVariants}
-            className="text-4xl md:text-5xl font-bold text-white mb-6"
-          >
+        <div className="bg-[var(--primary-background)] text-white px-8 py-4 shadow-lg">
+          <h2 className="text-xl font-bold flex items-center gap-2">
+            <Star className="w-6 h-6" />
             Ready to Transform Your Career?
-          </motion.h2>
-          <motion.p
-            variants={itemVariants}
-            className="text-xl text-white/90 mb-8 leading-relaxed"
-          >
+          </h2>
+        </div>
+        <div className="p-8 text-center">
+          <p className="text-gray-600 leading-relaxed text-lg mb-6">
             Join thousands of successful graduates who have advanced their careers through our comprehensive training programs.
-          </motion.p>
-          <motion.div
-            variants={itemVariants}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
-          >
-            <motion.button
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-[var(--primary-hover)] text-[var(--primary-background)] font-bold py-4 px-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center space-x-2"
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/admissions">
+            <button
+              className="bg-[var(--primary-background)] border-[var(--secondry-color)] border-[1px] hover:border-[var(--primary-background)] hover:bg-[var(--secondry-color)] text-white hover:text-[var(--primary-background)] px-8 py-3 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg cursor-pointer font-semibold text-lg flex items-center justify-center space-x-2"
             >
               <span>Enroll Now</span>
-              <ArrowRight size={20} />
-            </motion.button>
-            <motion.button
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-              className="border-2 border-white text-white font-bold py-4 px-8 rounded-lg hover:bg-white hover:text-[var(--primary-hover)] transition-all duration-300"
-            >
-              Schedule Consultation
-            </motion.button>
-          </motion.div>
+              <ArrowRight size={18} />
+            </button>
+            </Link>
+              <button
+                className="inline-block bg-transparent border-[var(--primary-background)] border-[1px] hover:bg-[var(--primary-background)] text-[var(--primary-background)] hover:text-white px-8 py-3 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg cursor-pointer font-semibold text-lg"
+              >
+                Schedule Consultation
+              </button>
+          </div>
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 }

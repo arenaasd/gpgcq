@@ -53,18 +53,18 @@ const Admission = () => {
   }, []);
 
   const bsPrograms = [
-    { name: 'BS Chemistry', seats: 40, duration: '4 Years' },
-    { name: 'BS Economics', seats: 50, duration: '4 Years' },
-    { name: 'BS Education', seats: 45, duration: '4 Years' },
-    { name: 'BS English', seats: 60, duration: '4 Years' },
-    { name: 'BS Geography', seats: 35, duration: '4 Years' },
-    { name: 'BS History', seats: 40, duration: '4 Years' },
-    { name: 'BS Mathematics', seats: 45, duration: '4 Years' },
-    { name: 'BS Physics', seats: 40, duration: '4 Years' },
-    { name: 'BS Political Science', seats: 50, duration: '4 Years' },
-    { name: 'BS Sociology', seats: 45, duration: '4 Years' },
-    { name: 'BS Urdu', seats: 40, duration: '4 Years' },
-    { name: 'BS Zoology', seats: 35, duration: '4 Years' }
+    { name: 'BS Chemistry', seats: 100, duration: '4 Years' },
+    { name: 'BS Economics', seats: 100, duration: '4 Years' },
+    { name: 'BS Education', seats: 100, duration: '4 Years' },
+    { name: 'BS English', seats: 100, duration: '4 Years' },
+    { name: 'BS Geography', seats: 100, duration: '4 Years' },
+    { name: 'BS History', seats: 100, duration: '4 Years' },
+    { name: 'BS Mathematics', seats: 100, duration: '4 Years' },
+    { name: 'BS Physics', seats: 100, duration: '4 Years' },
+    { name: 'BS Political Science', seats: 100, duration: '4 Years' },
+    { name: 'BS Sociology', seats: 100, duration: '4 Years' },
+    { name: 'BS Urdu', seats: 100, duration: '4 Years' },
+    { name: 'BS Zoology', seats: 100, duration: '4 Years' }
   ];
 
   const admissionSteps = [

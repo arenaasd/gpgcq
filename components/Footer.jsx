@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { Facebook, Instagram, Youtube, Linkedin, Mail, Home, GraduationCap, Users, Briefcase, Phone } from "lucide-react";
+import { Facebook, Instagram, Building2, Youtube, Linkedin, Mail, Home, GraduationCap, Users, Briefcase, Phone } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -14,11 +14,11 @@ export default function Footer() {
           <div className="absolute bottom-8 right-8 w-32 h-32 bg-[var(--secondry-color)] rounded-full blur-2xl"></div>
           <div className="absolute top-1/2 left-1/3 w-16 h-16 bg-orange-300 rounded-full blur-xl"></div>
         </div>
-        
+
         <div className="max-w-7xl mx-auto relative">
           {/* Main Footer Content */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-            
+
             {/* College Info */}
             <div className="lg:col-span-2">
               <div className="mb-6">
@@ -27,7 +27,7 @@ export default function Footer() {
                   Government Post Graduate College
                 </h3>
                 <p className="text-gray-600 leading-relaxed mb-4">
-                  Empowering students through quality education and fostering academic excellence in Balochistan. 
+                  Empowering students through quality education and fostering academic excellence in Balochistan.
                   Join us in building a brighter future through knowledge and innovation.
                 </p>
                 <div className="text-sm text-gray-600">
@@ -92,6 +92,16 @@ export default function Footer() {
                   <Phone className="w-4 h-4 group-hover:scale-110 transition-transform" />
                   <span className="relative">
                     Contact Us
+                    <span className="absolute inset-x-0 bottom-0 h-0.5 bg-[var(--primary-background)] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+                  </span>
+                </Link>
+                <Link
+                  href="/facilities"
+                  className="flex items-center gap-2 text-gray-600 hover:text-[var(--primary-background)] transition-all duration-300 font-medium group"
+                >
+                  <Building2 className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                  <span className="relative">
+                    Facilities
                     <span className="absolute inset-x-0 bottom-0 h-0.5 bg-[var(--primary-background)] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
                   </span>
                 </Link>
@@ -160,7 +170,7 @@ export default function Footer() {
                   Excellence in Education • Building Tomorrow's Leaders
                 </p>
               </div>
-              
+
               <div className="flex items-center gap-4">
                 <div className="text-center md:text-right">
                   <p className="text-xs text-gray-500 mb-1">
